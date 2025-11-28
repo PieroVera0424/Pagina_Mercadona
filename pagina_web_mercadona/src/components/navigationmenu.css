@@ -1,0 +1,36 @@
+/* src/components/NavigationMenu.css */
+
+.nav-menu {
+    background-color: #007a3e; /* El VERDE Mercadona */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-menu ul {
+    display: flex; /* Pone los elementos en fila horizontal */
+    justify-content: center; /* Los centra en la pantalla */
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 15px 0;
+    gap: 30px; /* Espacio entre cada categoría */
+  }
+  
+  .nav-menu li {
+    position: relative;
+  }
+  
+  .nav-menu a {
+    text-decoration: none; /* Quita el subrayado azul feo */
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Efecto al pasar el ratón */
+  .nav-menu a:hover {
+    color: #f5e400; /* Amarillo Mercadona */
+    text-decoration: underline;
+  }

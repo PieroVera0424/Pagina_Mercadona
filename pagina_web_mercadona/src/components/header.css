@@ -1,0 +1,56 @@
+/* src/components/header.css */
+
+.site-header {
+    background-color: white; /* ¡Esto es lo importante! */
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .top-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo izq, Buscador centro, Cesta der */
+    padding: 15px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .mercadona-logo {
+    height: 40px; /* Ajusta el tamaño del logo */
+    width: auto;
+  }
+  
+  .search-section {
+    flex-grow: 1; /* Ocupa el espacio disponible */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-input {
+    width: 60%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Bordes redondos típicos */
+    font-size: 14px;
+    background-color: #f8f8f8;
+  }
+  
+  .user-actions {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .btn-action, .btn-cesta {
+    background: none;
+    border: 1px solid #007a3e;
+    color: #007a3e;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .btn-cesta {
+    background-color: #007a3e;
+    color: white;
+  }
