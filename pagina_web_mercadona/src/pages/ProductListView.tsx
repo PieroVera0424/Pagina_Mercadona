@@ -1,62 +1,46 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import './ProductListView.css'; // ¡Importante!
 
-// 1. Inventamos unos datos falsos (Simulando una Base de Datos)
+// (Mantén tu constante PRODUCTS_DB igual que antes)
 const PRODUCTS_DB: Record<string, string[]> = {
-  alimentacion: ['Leche Hacendado', 'Pan de molde', 'Huevos L', 'Arroz redondo', 'Aceite de Oliva'],
-  drogueria: ['Detergente Marsella', 'Lejía con detergente', 'Suavizante Azul', 'Lavavajillas'],
-  perfumeria: ['Gel de baño', 'Champú Huevo', 'Crema hidratante', 'Desodorante'],
-  mascotas: ['Pienso Perro', 'Comida Gato', 'Arena absorbente'],
-  bebe: ['Pañales Talla 3', 'Toallitas húmedas', 'Potitos de frutas']
+  alimentacion: ['Leche Hacendado', 'Pan de molde integral', 'Huevos camperos L', 'Arroz redondo', 'Aceite de Oliva Virgen'],
+  drogueria: ['Detergente líquido', 'Lavavajillas a mano', 'Suavizante concentrado', 'Limpiahogar pH neutro'],
+  perfumeria: ['Gel de baño dermoprotector', 'Champú familiar', 'Crema hidratante corporal', 'Desodorante roll-on'],
+  mascotas: ['Pienso perro adulto', 'Comida húmeda gato', 'Arena aglomerante'],
+  bebe: ['Pañales Talla 3', 'Toallitas húmedas bebé', 'Potito de frutas variadas']
 };
 
 const ProductListView = () => {
-  // 2. Leemos la categoría de la URL (ej: "alimentacion")
   const { category } = useParams<{ category: string }>();
-
-  // 3. Buscamos los productos de esa categoría (o una lista vacía si no existe)
-  // Usamos el 'category' en minúsculas para buscar en nuestra "base de datos"
   const productList = category ? PRODUCTS_DB[category.toLowerCase()] : [];
 
   return (
-    <div style={{ padding: '40px', maxWidth: '1200px', margin: '0 auto' }}>
-      {/* Título dinámico */}
-      <h2 style={{ color: '#007a3e', textTransform: 'capitalize', marginBottom: '20px' }}>
-        Categoría: {category}
+    <div className="product-list-container">
+      <h2 className="category-title">
+        {category ? category.replace('-', ' ') : 'Productos'}
       </h2>
 
-      {/* Si hay productos, los mostramos. Si no, avisamos. */}
       {productList && productList.length > 0 ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
+        <div className="product-grid">
           {productList.map((product, index) => (
-            <div key={index} style={{ 
-              border: '1px solid #ddd', 
-              padding: '20px', 
-              borderRadius: '8px', 
-              backgroundColor: 'white',
-              textAlign: 'center',
-              boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
-            }}>
-              {/* Simulamos una imagen de producto */}
-              <div style={{ height: '100px', background: '#f0f0f0', marginBottom: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
-                Imagen
-              </div>
-              <h3 style={{ fontSize: '16px', margin: '0 0 10px 0' }}>{product}</h3>
-              <button style={{ 
-                backgroundColor: '#007a3e', 
-                color: 'white', 
-                border: 'none', 
-                padding: '5px 15px', 
-                borderRadius: '15px',
-                cursor: 'pointer' 
-              }}>
+            <div key={index} className="product-card">
+              {/* Placeholder de imagen con un emoji de caja */}
+              <div className="product-image-placeholder">📦</div>
+              
+              <h3 className="product-name">{product}</h3>
+              
+              <button className="btn-add-cart">
                 Añadir
               </button>
             </div>
           ))}
         </div>
       ) : (
-        <p>No se encontraron productos para esta categoría.</p>
+        <div className="no-products">
+          <p>😕 No hemos encontrado productos en la categoría "{category}".</p>
+          <p>Prueba a seleccionar otra del menú.</p>
+        </div>
       )}
     </div>
   );

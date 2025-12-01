@@ -1,0 +1,61 @@
+/* src/components/Layout.css */
+
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el footer siempre baje */
+  }
+  
+  main {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    background-color: #f8f8f8;
+  }
+  
+  /* --- FOOTER --- */
+  .site-footer {
+    background-color: #263038; /* Color exacto de Mercadona */
+    color: white;
+    /* ... resto de estilos ... */
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas automáticas */
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .footer-col h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-col li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-col a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .footer-col a:hover {
+    color: #007a3e; /* Verde al pasar el ratón */
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 12px;
+  }

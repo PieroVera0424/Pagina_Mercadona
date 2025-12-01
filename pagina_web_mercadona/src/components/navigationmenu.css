@@ -34,3 +34,23 @@
     color: #f5e400; /* Amarillo Mercadona */
     text-decoration: underline;
   }
+  @media (max-width: 768px) {
+    .nav-menu ul {
+      justify-content: flex-start; /* Empieza a la izquierda */
+      overflow-x: auto; /* Permite hacer scroll lateral con el dedo */
+      white-space: nowrap; /* Que no salten de línea */
+      padding: 15px 20px; /* Un poco de margen para el dedo */
+      -webkit-overflow-scrolling: touch; /* Scroll suave en iPhone */
+      
+      /* Ocultar la barra de scroll fea pero mantener la funcionalidad */
+      scrollbar-width: none; /* Firefox */
+    }
+    
+    .nav-menu ul::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+  
+    .nav-menu li {
+      flex-shrink: 0; /* Evita que los textos se aplasten */
+    }
+  }

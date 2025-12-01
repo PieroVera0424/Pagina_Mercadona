@@ -1,0 +1,91 @@
+/* src/pages/ProductListView.css */
+
+.product-list-container {
+    padding: 40px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .category-title {
+    color: #333;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    border-bottom: 2px solid #007a3e; /* Subrayado verde */
+    padding-bottom: 10px;
+    display: inline-block;
+  }
+  
+  /* --- GRID DE PRODUCTOS --- */
+  .product-grid {
+    display: grid;
+    /* Crea columnas automáticamente. Mínimo 220px de ancho. */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+  }
+  
+  /* --- TARJETA DE PRODUCTO --- */
+  .product-card {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Sombra al pasar el ratón */
+    transform: translateY(-5px); /* Se levanta un poco */
+    border-color: transparent;
+  }
+  
+  .product-image-placeholder {
+    height: 150px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-size: 40px;
+  }
+  
+  .product-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 15px 0;
+    flex-grow: 1; /* Ocupa espacio para alinear botones abajo */
+  }
+  
+  .btn-add-cart {
+    background-color: white;
+    color: #007a3e;
+    border: 2px solid #007a3e;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+  }
+  
+  .btn-add-cart:hover {
+    background-color: #007a3e;
+    color: white;
+  }
+  
+  .no-products {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 50px;
+    background: white;
+    border-radius: 12px;
+  }

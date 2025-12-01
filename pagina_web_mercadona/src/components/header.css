@@ -1,56 +1,199 @@
 /* src/components/header.css */
 
 .site-header {
-    background-color: white; /* ¡Esto es lo importante! */
-    width: 100%;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
+  background-color: white;
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+  /* Fija el header arriba al hacer scroll */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.top-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.mercadona-logo {
+  display: block;
+  /* Un poco más pequeño para que quede elegante */
+  width: 160px; 
+  height: auto;
+}
+
+/* --- BUSCADOR --- */
+.search-section {
+  flex-grow: 1;
+  max-width: 600px; /* Que no se estire infinito */
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px 12px 45px; /* Espacio a la izquierda para el icono */
+  border: 1px solid #ddd;
+  border-radius: 30px; /* Muy redondo */
+  font-size: 15px;
+  background-color: #f4f4f4;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  background-color: white;
+  border-color: #007a3e; /* Verde al hacer clic */
+  box-shadow: 0 0 0 3px rgba(0, 122, 62, 0.1);
+}
+
+/* Truco para el icono de lupa (usando un emoji por ahora) */
+.search-section::before {
+  content: '🔍';
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #888;
+  pointer-events: none;
+}
+
+/* --- BOTONES --- */
+.user-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-action, .btn-cesta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+/* Botón "Mi Cuenta" (Borde verde) */
+.btn-action {
+  background: white;
+  border: 2px solid #007a3e;
+  color: #007a3e;
+}
+
+.btn-action:hover {
+  background-color: #e8f5e9;
+}
+
+/* Botón "Cesta" (Fondo verde sólido) */
+.btn-cesta {
+  background-color: #007a3e;
+  border: 2px solid #007a3e;
+  color: white;
+}
+
+.btn-cesta:hover {
+  background-color: #006030;
+  border-color: #006030;
+}
+
+/* Icono de cesta (emoji por ahora) */
+.btn-cesta::before {
+  content: '🛒';
+  font-size: 16px;
+}
+
+/* Icono de usuario */
+.btn-action::before {
+  content: '👤';
+  font-size: 16px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
   .top-bar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Logo izq, Buscador centro, Cesta der */
-    padding: 15px 5%;
-    max-width: 1400px;
-    margin: 0 auto;
+    flex-wrap: wrap; /* Permite que los elementos bajen de línea */
+    padding: 15px;
   }
-  
-  .mercadona-logo {
-    height: 40px; /* Ajusta el tamaño del logo */
-    width: auto;
+  .logo-section { order: 1; }
+  .user-actions { order: 2; }
+  .search-section { 
+    order: 3; 
+    width: 100%; /* Buscador ocupa todo el ancho abajo */
+    max-width: none;
+    margin-top: 10px;
   }
-  
-  .search-section {
-    flex-grow: 1; /* Ocupa el espacio disponible */
-    display: flex;
-    justify-content: center;
+  .mercadona-logo { width: 130px; }
+  .btn-action span, .btn-cesta span {
+    display: none; /* Oculta el texto en móvil, deja solo icono */
   }
-  
-  .search-input {
-    width: 60%;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 20px; /* Bordes redondos típicos */
-    font-size: 14px;
-    background-color: #f8f8f8;
+  .btn-action, .btn-cesta {
+    padding: 8px;
+    border-radius: 50%; /* Botones redondos */
   }
+}
+/* src/components/header.css */
+
+/* ... todo tu código anterior ... */
+
+/* --- VERSIÓN MÓVIL (RWD) --- */
+@media (max-width: 768px) {
   
-  .user-actions {
-    display: flex;
+  /* 1. Que la barra superior se apile en columna */
+  .top-bar-container {
+    flex-direction: column;
     gap: 15px;
+    padding: 15px;
+  }
+
+  /* 2. El buscador ocupa todo el ancho */
+  .search-section {
+    order: 3; /* Lo bajamos a la tercera posición */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* 3. Ajustamos el logo y los botones en la misma línea superior */
+  .top-bar-container {
+    /* Truco: Usamos grid para colocar logo izq y botones der */
+    display: grid; 
+    grid-template-columns: 1fr auto; 
+    grid-template-rows: auto auto;
+    align-items: center;
+  }
+
+  .logo-section {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+
+  .user-actions {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    gap: 5px;
+  }
+
+  .search-section {
+    grid-column: 1 / 3; /* El buscador ocupa todo el ancho abajo */
+    grid-row: 2;
+    margin-top: 10px;
+  }
+
+  /* 4. Simplificamos los botones en móvil (quitamos texto, dejamos iconos) */
+  .btn-action span, .btn-cesta span {
+    /* Si tienes texto dentro de <span> lo ocultamos, si no, ajusta el tamaño */
+    font-size: 12px;
   }
   
   .btn-action, .btn-cesta {
-    background: none;
-    border: 1px solid #007a3e;
-    color: #007a3e;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
+    padding: 8px; /* Botones más pequeños */
   }
-  
-  .btn-cesta {
-    background-color: #007a3e;
-    color: white;
-  }
+}

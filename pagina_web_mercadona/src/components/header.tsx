@@ -1,7 +1,11 @@
 import React from 'react';
-import NavigationMenu from './navigationmenu'; // Ojo con mayus/minus según tu archivo
+import NavigationMenu from './navigationmenu'; 
 import { Link } from 'react-router-dom';
-import './header.css'; // ¡IMPORTANTE! Crearemos este archivo ahora
+import './header.css'; 
+
+// 1. IMPORTAMOS LA IMAGEN LOCAL
+// (Asegúrate de que el nombre del archivo en 'assets' es exactamente 'mercadona.svg')
+import logoMercadona from '../assets/mercadona.svg'; 
 
 const Header = () => {
   return (
@@ -12,14 +16,13 @@ const Header = () => {
         {/* 1. Logo */}
         <div className="logo-section">
           <Link to="/">
-            {/* Usamos el logo oficial SVG de Wikipedia */}
+            {/* 2. USAMOS LA VARIABLE AQUÍ (entre llaves {}) */}
             <img 
-  src="https://upload.wikimedia.org/wikipedia/commons/2/23/Mercadona_logo.svg" 
-  alt="Mercadona" 
-  className="mercadona-logo" 
-  width="180" 
-  style={{ display: 'block' }} // Asegura que se vea
-/>
+              src={logoMercadona} 
+              alt="Mercadona" 
+              className="mercadona-logo" 
+              // Quitamos el width="180" de aquí porque ya lo controlamos mejor por CSS
+            />
           </Link>
         </div>
 
