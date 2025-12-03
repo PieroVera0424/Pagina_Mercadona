@@ -1,245 +1,71 @@
-/* src/pages/HomeView.css - ARCHIVO COMPLETO */
-
-/* --- 1. HERO SUPERIOR (La primera sección) --- */
 .home-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    background-color: #fcfcfc;
-    padding: 0 5%;
-    gap: 50px;
-    max-width: 1400px;
-    margin: 0 auto;
+    padding-bottom: 50px;
+    background-color: #f8f8f8; /* Un gris muy suave de fondo */
   }
   
-  .home-image-section {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .hero-image {
-    width: 100%;
-    max-width: 600;
-    height: auto;
-    max-height: 500px;
-    object-fit: contain;
-    border-radius: 20px;
-  }
-  
-  .home-content-section {
-    flex: 1;
-    max-width: 500px;
-  }
-  
-  .hero-title {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 3rem;
-    font-weight: bold;
-    color: #000;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 30px;
-    line-height: 1.5;
-  }
-  
-  /* --- FORMULARIO (Se usa arriba y abajo) --- */
-  .zip-code-form {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .zip-input {
-    padding: 12px 20px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px;
-    flex-grow: 1;
-    background-color: white;
-  }
-  
-  .btn-entrar {
-    background-color: #009c54;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    letter-spacing: 1px;
-    transition: background 0.3s;
-  }
-  
-  .btn-entrar:hover {
-    background-color: #007a3e;
-  }
-  
-  /* --- 2. SECCIONES INFORMATIVAS (Medio) --- */
-  .info-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .categories-section {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 20px;
-    gap: 80px;
-    background-color: white;
+    margin: 40px auto;
+    padding: 0 20px;
   }
   
-  .info-section.reverse {
-    flex-direction: row-reverse;
-  }
-  
-  .info-text {
-    flex: 1;
-    max-width: 400px;
-  }
-  
-  .info-text h2 {
-    font-family: 'Georgia', serif;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+  .section-title {
+    font-size: 1.5rem;
     color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
   }
   
-  .info-text p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 20px;
+  /* GRIDS RESPONSIVOS */
+  .categories-grid {
+    display: grid;
+    /* Esto crea columnas automáticas. Mínimo 200px de ancho, si no caben, saltan de línea */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
   }
   
-  .link-green {
-    color: #009c54;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .info-image {
-    flex: 1;
-  }
-  
-  .info-image img {
-    width: 100%;
-    max-width: 450px;
+  /* TARJETA INDIVIDUAL */
+  .category-card {
+    background: white;
     border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  }
-  
-  /* --- 3. BANNER FINAL (El arreglo de las verduras) --- */
-  .bottom-banner {
-    display: flex;        /* ESTO ES LO QUE ARREGLA EL DISEÑO */
-    flex-direction: row;  /* Pone texto e imagen lado a lado */
-    align-items: center;
-    background-color: #fafafa;
-    height: 450px;
-    width: 100%;
     overflow: hidden;
-    margin-top: 50px;
-  }
-  
-  .bottom-content {
-    flex: 1;
-    padding: 0 5% 0 10%;
+    text-decoration: none; /* Quita el subrayado del link */
+    color: inherit;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
   
-  .bottom-content h2 {
-    font-family: 'Georgia', serif;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #222;
-    line-height: 1.1;
+  .category-card:hover {
+    transform: translateY(-5px); /* Efecto de levantar al pasar ratón */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
   }
   
-  .bottom-content .zip-code-form {
-    max-width: 400px;
-    margin-bottom: 20px;
+  .card-image-container {
+    width: 100%;
+    height: 150px;
+    background-color: #eee;
   }
   
-  .bottom-image-container {
-    flex: 1.5;
-    height: 100%;
-    position: relative;
-  }
-  
-  .bottom-image-container img {
+  .card-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* CLAVE: Recorta la imagen para que encaje perfecta */
-    object-position: center;
-    display: block;
+    object-fit: cover; /* Recorta la imagen para que llene el hueco sin deformarse */
   }
   
-  .app-buttons {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .btn-store {
-    background-color: #000;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 13px;
-    cursor: pointer;
+  .card-info {
+    padding: 15px;
+    flex-grow: 1;
     display: flex;
     align-items: center;
-    gap: 5px;
-    font-weight: 500;
+    justify-content: center;
+    text-align: center;
   }
   
-  /* --- RESPONSIVE (Móvil) --- */
-  @media (max-width: 768px) {
-    /* Hero */
-    .home-container {
-      flex-direction: column;
-      text-align: center;
-      padding-top: 40px;
-      height: auto;
-    }
-    .home-image-section { order: -1; }
-    
-    /* Secciones Info */
-    .info-section, .info-section.reverse {
-      flex-direction: column-reverse;
-      text-align: center;
-      padding: 40px 20px;
-      gap: 30px;
-    }
-    
-    /* Banner Final */
-    .bottom-banner {
-      flex-direction: column; /* Aquí sí va uno debajo de otro */
-      height: auto;
-      padding-bottom: 40px;
-    }
-    
-    .bottom-image-container {
-      width: 100%;
-      height: 250px;
-      order: -1;
-    }
-    
-    .bottom-content {
-      padding: 30px 20px;
-      text-align: center;
-    }
-    
-    .bottom-content .zip-code-form {
-      margin: 0 auto 20px;
-    }
-    
-    .app-buttons {
-      justify-content: center;
-    }
+  .card-info h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: #444;
+    font-weight: 500;
   }

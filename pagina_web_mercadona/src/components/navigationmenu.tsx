@@ -1,23 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './NavigationMenu.css'; // Crearemos este CSS en el paso 3
+import './navigationmenu.css';
 
-const categories = [
-  { name: 'Alimentación', slug: 'alimentacion' },
-  { name: 'Droguería', slug: 'drogueria' },
-  { name: 'Perfumería', slug: 'perfumeria' },
-  { name: 'Mascotas', slug: 'mascotas' },
-  { name: 'Bebé', slug: 'bebe' }
-];
+const NavigationMenu = () => {
+  const categories = [
+    { name: 'Alimentación', slug: 'alimentacion' },
+    { name: 'Droguería', slug: 'drogueria' },
+    { name: 'Perfumería', slug: 'perfumeria' },
+    { name: 'Mascotas', slug: 'mascotas' },
+    { name: 'Bebé', slug: 'bebe' }
+  ];
 
-const NavigationMenu: React.FC = () => {
   return (
-    <nav className="nav-menu">
-      <ul>
+    <nav className="nav-menu-container">
+      <ul className="nav-list">
         {categories.map((cat) => (
-          <li key={cat.slug}>
-            {/* Aquí está la magia de la ruta dinámica */}
-            <Link to={`/productos/${cat.slug}`}>
+          <li key={cat.slug} className="nav-item">
+            <Link to={`/productos/${cat.slug}`} className="nav-link">
               {cat.name}
             </Link>
           </li>

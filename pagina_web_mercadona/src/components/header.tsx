@@ -1,45 +1,56 @@
 import React from 'react';
-import NavigationMenu from './navigationmenu'; 
 import { Link } from 'react-router-dom';
-import './header.css'; 
-
-// 1. IMPORTAMOS LA IMAGEN LOCAL
-// (Asegúrate de que el nombre del archivo en 'assets' es exactamente 'mercadona.svg')
-import logoMercadona from '../assets/mercadona.svg'; 
+// import { useCart } from '../context/CartContext'; // <--- Descomenta esto si ya creaste el Contexto
+import logoMercadona from '../assets/mercadona.svg';
+import './header.css';
 
 const Header = () => {
+  // Si ya tienes el CartContext creado, descomenta la siguiente línea y borra "const count = 0;"
+  // const { count } = useCart(); 
+  const count = 0; // <--- Valor temporal para que no te de error ahora mismo
+
+  const links = [
+    { name: 'Conocénos', slug: 'conocénos' },
+    { name: 'Supermercados', slug: 'supermercados' },
+    { name: 'Trabaja con nosotros', slug: 'trabaja con nosotros' },
+    { name: 'Atención al cliente', slug: 'atención al cliente' },
+  ];
+
   return (
     <header className="site-header">
-      {/* --- PARTE SUPERIOR (Logo, Buscador, Cesta) --- */}
-      <div className="top-bar-container">
+      <div className="header-inner">
         
-        {/* 1. Logo */}
-        <div className="logo-section">
+        {/* IZQUIERDA: LOGO */}
+        <div className="header-left">
           <Link to="/">
-            {/* 2. USAMOS LA VARIABLE AQUÍ (entre llaves {}) */}
-            <img 
-              src={logoMercadona} 
-              alt="Mercadona" 
-              className="mercadona-logo" 
-              // Quitamos el width="180" de aquí porque ya lo controlamos mejor por CSS
-            />
+            <img src={logoMercadona} alt="Mercadona" className="mercadona-logo" />
           </Link>
         </div>
 
-        {/* 2. Buscador */}
-        <div className="search-section">
-          <input type="text" placeholder="Buscar productos..." className="search-input" />
+        {/* CENTRO: ENLACES VERDES (Alineados horizontalmente) */}
+        <nav className="header-center">
+          {links.map((link) => (
+            <Link 
+              key={link.slug} 
+              to={`/productos/${link.slug}`} 
+              className="nav-link"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* DERECHA: CESTA */}
+        <div className="header-right">
+           <button className="btn-clean">Mi Cuenta</button>
+           <button className="btn-cesta-clean">
+             Cesta 
+             {/* El badge solo saldrá si count es mayor que 0 */}
+             {count > 0 && <span className="cart-badge">{count}</span>}
+           </button>
         </div>
 
-        {/* 3. Botones derecha */}
-        <div className="user-actions">
-          <button className="btn-action">Mi Cuenta</button>
-          <button className="btn-cesta">Cesta</button>
-        </div>
       </div>
-
-      {/* --- PARTE INFERIOR (Menú Verde) --- */}
-      <NavigationMenu />
     </header>
   );
 };

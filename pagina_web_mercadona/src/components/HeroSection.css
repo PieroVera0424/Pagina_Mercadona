@@ -1,0 +1,115 @@
+/* Importamos la fuente Serif elegante para el título */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 600px; /* Altura considerable */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 20px;
+  
+  /* --- CAMBIO CLAVE 1: IMAGEN DE FONDO --- */
+  /* Usamos solo la imagen, SIN la capa de degradado verde encima */
+  background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop'); 
+  background-size: cover;
+  background-position: center;
+}
+
+/* ELIMINAMOS EL PSEUDO-ELEMENTO ::before QUE HACÍA EL FILTRO OSCURO */
+/* .hero-section::before { ... }  <-- ESTO YA NO ES NECESARIO */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 30px;
+  /* Un fondo blanco semitransparente muy sutil para asegurar legibilidad */
+  background-color: rgba(255, 255, 255, 0.85); 
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Sombra suave */
+}
+
+.hero-title {
+  font-family: 'Merriweather', serif;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  /* --- CAMBIO CLAVE 2: COLOR DEL TEXTO --- */
+  color: #1a1a1a; /* Negro casi puro para máximo contraste */
+}
+
+.hero-description {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  /* Color de texto gris oscuro para la descripción */
+  color: #4a4a4a; 
+  line-height: 1.6;
+}
+
+/* FORMULARIO */
+.postal-form {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  height: 55px;
+}
+
+.postal-input {
+  border: 1px solid #e0e0e0; /* Borde gris claro */
+  background: white; /* Fondo blanco sólido */
+  border-radius: 8px;
+  padding: 0 20px;
+  font-size: 1.1rem;
+  width: 250px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.postal-input::placeholder {
+  color: #999;
+}
+
+.postal-input:focus {
+  border-color: #007a3e; /* Borde verde al hacer foco */
+  box-shadow: 0 0 0 3px rgba(0, 122, 62, 0.1);
+}
+
+.postal-btn {
+  background-color: #007a3e; /* Verde Mercadona */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 35px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+}
+
+.postal-btn:hover {
+  background-color: #005c2f;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .postal-form {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+  
+  .postal-input, .postal-btn {
+    width: 100%;
+    height: 50px;
+  }
+}

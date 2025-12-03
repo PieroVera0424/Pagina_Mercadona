@@ -89,3 +89,40 @@
     background: white;
     border-radius: 12px;
   }
+  /* Añade o reemplaza estas clases en tu archivo CSS existente */
+
+.product-image-wrapper {
+    height: 160px; /* Altura fija para la zona de la imagen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  
+  .product-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ajusta la imagen sin cortarla */
+  }
+  
+  .product-unit {
+    font-size: 0.85rem;
+    color: #888;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Empuja el precio al fondo de la tarjeta */
+    width: 100%;
+  }
+  
+  .product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+  }

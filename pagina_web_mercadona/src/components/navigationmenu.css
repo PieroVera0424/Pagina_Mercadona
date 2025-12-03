@@ -1,56 +1,50 @@
-/* src/components/NavigationMenu.css */
+.nav-menu-container {
+  background-color: #007a3e; /* Verde Mercadona */
+  width: 100%;
+  height: 50px; /* Altura fija para la barra verde */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centramos los enlaces horizontalmente */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-.nav-menu {
-    background-color: #007a3e; /* El VERDE Mercadona */
-    width: 100%;
-    padding: 0;
-    margin: 0;
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 30px; /* Espacio entre categorías */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 5px;
+  transition: opacity 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.nav-link:hover {
+  opacity: 0.85; /* Efecto sutil al pasar el ratón */
+}
+
+/* RESPONSIVE: Barra desplazable en móviles */
+@media (max-width: 768px) {
+  .nav-menu-container {
+    justify-content: flex-start; /* Alineación a la izquierda */
+    overflow-x: auto; /* Permite hacer scroll horizontal si no caben */
+    white-space: nowrap; /* Evita que los textos salten de línea */
+    padding: 0 15px;
   }
   
-  .nav-menu ul {
-    display: flex; /* Pone los elementos en fila horizontal */
-    justify-content: center; /* Los centra en la pantalla */
-    list-style: none; /* Quita los puntos de la lista */
-    margin: 0;
-    padding: 15px 0;
-    gap: 30px; /* Espacio entre cada categoría */
+  /* Ocultamos la barra de scroll fea en Chrome/Safari */
+  .nav-menu-container::-webkit-scrollbar {
+    display: none; 
   }
-  
-  .nav-menu li {
-    position: relative;
-  }
-  
-  .nav-menu a {
-    text-decoration: none; /* Quita el subrayado azul feo */
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    transition: color 0.3s ease;
-  }
-  
-  /* Efecto al pasar el ratón */
-  .nav-menu a:hover {
-    color: #f5e400; /* Amarillo Mercadona */
-    text-decoration: underline;
-  }
-  @media (max-width: 768px) {
-    .nav-menu ul {
-      justify-content: flex-start; /* Empieza a la izquierda */
-      overflow-x: auto; /* Permite hacer scroll lateral con el dedo */
-      white-space: nowrap; /* Que no salten de línea */
-      padding: 15px 20px; /* Un poco de margen para el dedo */
-      -webkit-overflow-scrolling: touch; /* Scroll suave en iPhone */
-      
-      /* Ocultar la barra de scroll fea pero mantener la funcionalidad */
-      scrollbar-width: none; /* Firefox */
-    }
-    
-    .nav-menu ul::-webkit-scrollbar {
-      display: none; /* Chrome/Safari */
-    }
-  
-    .nav-menu li {
-      flex-shrink: 0; /* Evita que los textos se aplasten */
-    }
-  }
+}
