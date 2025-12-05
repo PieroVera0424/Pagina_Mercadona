@@ -6,39 +6,33 @@
   width: 100%;
   min-height: 600px; /* Altura considerable */
   display: flex;
-  justify-content: center;
+  justify-content: center;   /* A LA DERECHA */
   align-items: center;
-  text-align: center;
+  text-align: right;           /* Texto alineado a la derecha */
   overflow: hidden;
-  padding: 0 20px;
+  padding: 120px 80px;     /* Ajustado para que quede como la referencia */
   
-  /* --- CAMBIO CLAVE 1: IMAGEN DE FONDO --- */
-  /* Usamos solo la imagen, SIN la capa de degradado verde encima */
+  /* --- IMAGEN DE FONDO --- */
   background-image: url('https://www.mercadona.es/static/media/banner1@1x.a1cc528b6c06e1f281e1.jpg'); 
   background-size: cover;
   background-position: center;
 }
 
-/* ELIMINAMOS EL PSEUDO-ELEMENTO ::before QUE HACÍA EL FILTRO OSCURO */
-/* .hero-section::before { ... }  <-- ESTO YA NO ES NECESARIO */
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  padding: 30px;
-  /* Un fondo blanco semitransparente muy sutil para asegurar legibilidad */
-  background-color: rgba(255, 255, 255, 0.85); 
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Sombra suave */
+.hero-header__content {
+    margin: 0 auto;
+    max-width: 510px;
+    text-align: left;
+    padding: 0 2rem 11rem;
+    margin-left: 550px;
+    
 }
 
 .hero-title {
   font-family: 'Merriweather', serif;
-  font-size: 3.5rem;
+  font-size: 3.0rem;
   line-height: 1.1;
   margin-bottom: 20px;
-  /* --- CAMBIO CLAVE 2: COLOR DEL TEXTO --- */
+  /* Color del texto */
   color: #1a1a1a; /* Negro casi puro para máximo contraste */
 }
 
@@ -55,7 +49,7 @@
 .postal-form {
   display: flex;
   gap: 15px;
-  justify-content: center;
+  justify-content: flex-start;   /* FORMULARIO TAMBIÉN A LA DERECHA */
   height: 55px;
 }
 
@@ -98,6 +92,12 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .hero-section {
+    justify-content: center;   /* En móvil lo centramos para que se vea mejor */
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
   .hero-title {
     font-size: 2.5rem;
   }
@@ -106,6 +106,7 @@
     flex-direction: column;
     height: auto;
     align-items: center;
+    justify-content: center;
   }
   
   .postal-input, .postal-btn {

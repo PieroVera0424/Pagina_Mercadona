@@ -1,19 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import { useCart } from '../context/CartContext'; // <--- Descomenta esto si ya creaste el Contexto
 import logoMercadona from '../assets/mercadona.svg';
 import './header.css';
 
 const Header = () => {
-  const count = 0; // O usa tu useCart()
+  // Si ya tienes el CartContext creado, descomenta la siguiente línea y borra "const count = 0;"
+  // const { count } = useCart(); 
+  const count = 0; // <--- Valor temporal para que no te de error ahora mismo
 
-  // Quitamos 'Conócenos' de aquí para que no sea un producto
-  const productLinks = [
-    { name: 'Alimentación', slug: 'alimentacion' },
-    { name: 'Droguería', slug: 'drogueria' },
-    { name: 'Perfumería', slug: 'perfumeria' },
-    { name: 'Mascotas', slug: 'mascotas' },
-    { name: 'Bebé', slug: 'bebe' }
+  const links = [
+    { name: 'Conocénos', slug: 'conocénos' },
+    { name: 'Supermercados', slug: 'supermercados' },
+    { name: 'Trabaja con nosotros', slug: 'trabaja con nosotros' },
+    { name: 'Atención al cliente', slug: 'atención al cliente' },
   ];
+
+  const availableLanguages: Language[] = [
+    "Español",
+    "Valencià",
+    "Català",
+    "Galego",
+    "Euskara",
+    "English",
+    "Deutsch",
+  ];
+
+  // Cargar idioma guardado o Español por defecto
+  const [language, setLanguage] = useState<Language>(() => {
+    const saved = localStorage.getItem("language");
+    return (saved as Language) || "Español";
+  });
+
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("language", language);
+  }, [language]);
+
+  const handleSelect = (lang: Language) => {
+    setLanguage(lang);
+    setOpen(false);
+  };
 
   return (
     <header className="site-header">
@@ -26,16 +54,9 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* MENÚ CENTRAL */}
+        {/* CENTRO: ENLACES VERDES (Alineados horizontalmente) */}
         <nav className="header-center">
-          
-          {/* 1. ENLACE MANUAL A CONÓCENOS (Ruta limpia) */}
-          <Link to="/conocenos" className="nav-link">
-            Conócenos
-          </Link>
-
-          {/* 2. RESTO DE ENLACES (Rutas de productos) */}
-          {productLinks.map((link) => (
+          {links.map((link) => (
             <Link 
               key={link.slug} 
               to={`/productos/${link.slug}`} 
@@ -46,11 +67,12 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* DERECHA */}
+        {/* DERECHA: CESTA */}
         <div className="header-right">
            <button className="btn-clean">Mi Cuenta</button>
            <button className="btn-cesta-clean">
              Cesta 
+             {/* El badge solo saldrá si count es mayor que 0 */}
              {count > 0 && <span className="cart-badge">{count}</span>}
            </button>
         </div>
