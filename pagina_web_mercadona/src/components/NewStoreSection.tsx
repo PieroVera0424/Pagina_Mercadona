@@ -10,7 +10,7 @@ const NewStoreSection = () => {
         <div className="ns-image-col">
           {/* Usamos una imagen de trabajador de almacén */}
           <img 
-            src="https://images.unsplash.com/photo-1660481451479-7ad6d6ad0223?q=80&w=2670&auto=format&fit=crop" 
+            src="https://www.mercadona.es/static/media/notify-me.9afc6f9f70166e8a7038.jpeg" 
             alt="Trabajador Mercadona Almacén" 
           />
         </div>

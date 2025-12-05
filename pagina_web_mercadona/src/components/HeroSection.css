@@ -14,7 +14,7 @@
   
   /* --- CAMBIO CLAVE 1: IMAGEN DE FONDO --- */
   /* Usamos solo la imagen, SIN la capa de degradado verde encima */
-  background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop'); 
+  background-image: url('https://www.mercadona.es/static/media/banner1@1x.a1cc528b6c06e1f281e1.jpg'); 
   background-size: cover;
   background-position: center;
 }

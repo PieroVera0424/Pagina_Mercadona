@@ -19,7 +19,7 @@ const InfoSection = () => {
         <div className="info-image-col">
           {/* He buscado una imagen de supermercado parecida a la tuya */}
           <img 
-            src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=2670&auto=format&fit=crop" 
+            src="https://www.mercadona.es/static/media/worker.dec0a9488b0f619a21f3.jpeg" 
             alt="Compra Online Mercadona" 
           />
         </div>
