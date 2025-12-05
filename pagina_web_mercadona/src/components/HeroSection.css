@@ -19,13 +19,15 @@
 }
 
 .hero-header__content {
-    margin: 0 auto;
     max-width: 510px;
-    text-align: left;
-    padding: 0 2rem 11rem;
-    margin-left: 550px;
-    
+    text-align: ce;
+    padding-bottom: 11rem;
+
+    margin-left: auto;     /* Lo mantiene a la derecha */
+    padding-right: 350px;   /* <-- Esto lo empuja un poco hacia la izquierda */
 }
+
+
 
 .hero-title {
   font-family: 'Merriweather', serif;
