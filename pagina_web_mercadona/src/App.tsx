@@ -9,6 +9,7 @@ import Header from './components/header';
 import Layout from './components/Layout'; 
 import HomeView from './pages/HomeView';
 import ProductListView from './pages/ProductListView';
+import AboutView from './pages/AboutView'; // <--- 1. IMPORTAR (La crearemos ahora)
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           
           {/* Ruta de Inicio */}
           <Route index element={<HomeView />} />
+         
+          {/* Fíjate que NO tiene "productos/" delante */}
+          <Route path="conocenos" element={<AboutView />} />
           
           {/* Ruta Dinámica para las categorías (LA CLAVE DE TU PROYECTO) */}
           <Route 

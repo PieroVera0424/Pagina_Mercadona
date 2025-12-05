@@ -1,35 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { useCart } from '../context/CartContext'; // <--- Descomenta esto si ya creaste el Contexto
 import logoMercadona from '../assets/mercadona.svg';
 import './header.css';
 
 const Header = () => {
-  // Si ya tienes el CartContext creado, descomenta la siguiente línea y borra "const count = 0;"
-  // const { count } = useCart(); 
-  const count = 0; // <--- Valor temporal para que no te de error ahora mismo
+  const count = 0; // O usa tu useCart()
 
-  const links = [
-    { name: 'Conocénos', slug: 'conocénos' },
-    { name: 'Supermercados', slug: 'supermercados' },
-    { name: 'Trabaja con nosotros', slug: 'trabaja con nosotros' },
-    { name: 'Atención al cliente', slug: 'atención al cliente' },
+  // Quitamos 'Conócenos' de aquí para que no sea un producto
+  const productLinks = [
+    { name: 'Alimentación', slug: 'alimentacion' },
+    { name: 'Droguería', slug: 'drogueria' },
+    { name: 'Perfumería', slug: 'perfumeria' },
+    { name: 'Mascotas', slug: 'mascotas' },
+    { name: 'Bebé', slug: 'bebe' }
   ];
 
   return (
     <header className="site-header">
       <div className="header-inner">
         
-        {/* IZQUIERDA: LOGO */}
+        {/* LOGO */}
         <div className="header-left">
           <Link to="/">
             <img src={logoMercadona} alt="Mercadona" className="mercadona-logo" />
           </Link>
         </div>
 
-        {/* CENTRO: ENLACES VERDES (Alineados horizontalmente) */}
+        {/* MENÚ CENTRAL */}
         <nav className="header-center">
-          {links.map((link) => (
+          
+          {/* 1. ENLACE MANUAL A CONÓCENOS (Ruta limpia) */}
+          <Link to="/conocenos" className="nav-link">
+            Conócenos
+          </Link>
+
+          {/* 2. RESTO DE ENLACES (Rutas de productos) */}
+          {productLinks.map((link) => (
             <Link 
               key={link.slug} 
               to={`/productos/${link.slug}`} 
@@ -40,12 +46,11 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* DERECHA: CESTA */}
+        {/* DERECHA */}
         <div className="header-right">
            <button className="btn-clean">Mi Cuenta</button>
            <button className="btn-cesta-clean">
              Cesta 
-             {/* El badge solo saldrá si count es mayor que 0 */}
              {count > 0 && <span className="cart-badge">{count}</span>}
            </button>
         </div>

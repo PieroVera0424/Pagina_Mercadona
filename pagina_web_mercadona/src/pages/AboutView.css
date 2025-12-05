@@ -1,0 +1,133 @@
+/* Importamos fuente elegante para el título */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+.about-container {
+  width: 100%;
+  background-color: white;
+}
+
+/* --- 1. BARRA VERDE OSCURA --- */
+.about-nav {
+  background-color: #006f4f; /* Verde corporativo oscuro */
+  color: white;
+  padding: 0 10%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.about-nav-list {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.about-nav-list li {
+  cursor: pointer;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.about-nav-list li:hover, .about-nav-list li.active {
+  border-bottom-color: white; /* Subrayado blanco al pasar el ratón */
+}
+
+/* --- 2. HERO SECTION (IMAGEN) --- */
+.about-hero {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  /* Imagen de cocina/recetas similar a tu captura */
+  background-image: url('https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2670&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Capa oscura suave para que se lea el texto */
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.3); 
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  pointer-events: none;
+}
+
+.about-title {
+  font-family: 'Merriweather', serif;
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.about-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.about-btn:hover {
+  background-color: white;
+  color: #006f4f;
+}
+
+/* PUNTITOS DEL SLIDER */
+.slider-dots {
+  position: absolute;
+  bottom: -60px; /* Los bajamos un poco */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border: 1px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #ff6b3d; /* Naranja/Rojo decorativo */
+  border-color: #ff6b3d;
+}
+
+/* --- 3. CONTENIDO EXTRA --- */
+.about-body {
+  max-width: 800px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.about-body h2 {
+  color: #006f4f;
+  margin-bottom: 20px;
+}
+
+.about-body p {
+  color: #555;
+  line-height: 1.6;
+}
