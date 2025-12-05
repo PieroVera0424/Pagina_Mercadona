@@ -13,7 +13,7 @@
   
   /* --- FOOTER --- */
   .site-footer {
-    background-color: #263038; /* Color exacto de Mercadona */
+    background-color: #1c3037; /* Color exacto de Mercadona */
     color: white;
     /* ... resto de estilos ... */
   }
@@ -59,3 +59,121 @@
     border-top: 1px solid #444;
     font-size: 12px;
   }
+  /* --- ESTILOS PARA LA NUEVA SECCIÓN DE ATENCIÓN AL CLIENTE --- */
+
+.phone-container {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el icono con el texto */
+  gap: 15px; /* Espacio entre el icono y el número */
+  margin-top: 20px; /* Separación del título "Atención al cliente" */
+}
+
+.call-center-icon {
+  width: 45px; /* Tamaño del icono */
+  height: auto;
+}
+
+.phone-number {
+  font-size: 26px; /* Tamaño grande para el número */
+  font-weight: bold;
+  color: white; /* Color blanco para destacar */
+  margin: 0; /* Quitamos márgenes por defecto */
+  font-family: Arial, sans-serif;
+}
+
+/* Ajuste para que en móviles la columna de atención al cliente destaque más */
+@media (max-width: 768px) {
+  .call-center-col {
+    margin-top: 20px;
+    text-align: center; /* Centramos todo en móvil */
+  }
+
+  .phone-container {
+    justify-content: center; /* Centramos el bloque de teléfono e icono */
+  }
+}
+.social-media-container {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Espacio entre cada icono */
+  margin-top: 25px; /* Separación del número de teléfono */
+}
+
+.social-icon {
+  color: white; /* Iconos blancos */
+  font-size: 24px; /* Tamaño de los iconos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Efecto hover: cambian al verde corporativo y crecen un poco */
+.social-icon:hover {
+  color: #007a3e; 
+  transform: translateY(-3px); /* Un pequeño saltito hacia arriba */
+}
+
+/* Ajuste para móviles: centrar los iconos */
+@media (max-width: 768px) {
+  .social-media-container {
+    justify-content: center;
+    margin-top: 30px;
+  }
+}
+/* --- BARRA LEGAL (AZUL GRISÁCEO) --- */
+.footer-legal-bar {
+  background-color: #1c3037; /* Azul grisáceo de la captura */
+  padding: 15px 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.legal-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between; /* Texto a la izquierda, enlaces a la derecha */
+  align-items: center;
+  flex-wrap: wrap; /* Para móvil */
+  gap: 15px;
+}
+
+.legal-links {
+  display: flex;
+  gap: 20px;
+}
+
+.legal-links a {
+  color: white;
+  text-decoration: underline; /* Subrayado como en la imagen */
+  font-size: 13px;
+  transition: opacity 0.2s;
+}
+
+.legal-links a:hover {
+  opacity: 0.8;
+  color: white; /* Mantenemos blanco al pasar ratón */
+}
+
+/* --- FRANJA VERDE INFERIOR --- */
+.footer-green-strip {
+  background-color: #1c3037; /* Verde "musgo" de la parte inferior */
+  height: 40px; /* Altura de la franja decorativa */
+  width: 100%;
+}
+
+/* RESPONSIVE PARA LA BARRA LEGAL */
+@media (max-width: 768px) {
+  .legal-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .legal-links {
+    flex-direction: column; /* Enlaces uno debajo de otro en móvil */
+    gap: 10px;
+  }
+}
