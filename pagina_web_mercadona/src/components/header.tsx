@@ -1,19 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-// import { useCart } from '../context/CartContext'; // <--- Descomenta esto si ya creaste el Contexto
-import logoMercadona from '../assets/mercadona.svg';
-import './header.css';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import logoMercadona from "../assets/mercadona.svg";
+import "./header.css";
 
-const Header = () => {
-  // Si ya tienes el CartContext creado, descomenta la siguiente línea y borra "const count = 0;"
-  // const { count } = useCart(); 
-  const count = 0; // <--- Valor temporal para que no te de error ahora mismo
+type Language =
+  | "Español"
+  | "Valencià"
+  | "Català"
+  | "Galego"
+  | "Euskara"
+  | "English"
+  | "Deutsch";
 
+const Header: React.FC = () => {
   const links = [
-    { name: 'Conocénos', slug: 'conocénos' },
-    { name: 'Supermercados', slug: 'supermercados' },
-    { name: 'Trabaja con nosotros', slug: 'trabaja con nosotros' },
-    { name: 'Atención al cliente', slug: 'atención al cliente' },
+    { name: "Conocénos", slug: "conocénos" },
+    { name: "Supermercados", slug: "supermercados" },
+    { name: "Trabaja con nosotros", slug: "trabaja con nosotros" },
+    { name: "Atención al cliente", slug: "atención al cliente" },
   ];
 
   const availableLanguages: Language[] = [
@@ -47,19 +51,19 @@ const Header = () => {
     <header className="site-header">
       <div className="header-inner">
         
-        {/* LOGO */}
+        {/* IZQUIERDA: LOGO */}
         <div className="header-left">
           <Link to="/">
             <img src={logoMercadona} alt="Mercadona" className="mercadona-logo" />
           </Link>
         </div>
 
-        {/* CENTRO: ENLACES VERDES (Alineados horizontalmente) */}
+        {/* CENTRO: ENLACES */}
         <nav className="header-center">
           {links.map((link) => (
-            <Link 
-              key={link.slug} 
-              to={`/productos/${link.slug}`} 
+            <Link
+              key={link.slug}
+              to={`/productos/${link.slug}`}
               className="nav-link"
             >
               {link.name}
@@ -67,14 +71,32 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* DERECHA: CESTA */}
-        <div className="header-right">
-           <button className="btn-clean">Mi Cuenta</button>
-           <button className="btn-cesta-clean">
-             Cesta 
-             {/* El badge solo saldrá si count es mayor que 0 */}
-             {count > 0 && <span className="cart-badge">{count}</span>}
-           </button>
+        {/* DERECHA: SELECTOR DE IDIOMA */}
+        <div className="header-right language-selector">
+          <div
+            className="dropdown"
+            onMouseLeave={() => setOpen(false)}
+          >
+            <button
+              className="dropdown-btn"
+              onClick={() => setOpen(!open)}
+            >
+              {language} ▾
+            </button>
+
+            {open && (
+              <div className="dropdown-menu">
+                {availableLanguages.map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => handleSelect(lang)}
+                  >
+                    {lang}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
       </div>
