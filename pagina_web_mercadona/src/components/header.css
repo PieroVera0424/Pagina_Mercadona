@@ -1,0 +1,149 @@
+/* 1. EL CONTENEDOR PRINCIPAL BLANCO */
+.site-header {
+  background-color: white; /* FONDO BLANCO PURO */
+  width: 100%;
+  height: 80px; /* Altura fija */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #e0e0e0; /* Una línea muy fina gris abajo para separar */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+/* 2. LA CAJA QUE ALINEA TODO EN UNA FILA */
+.header-inner {
+  display: flex; /* ESTO ES LO QUE LOS PONE EN LÍNEA */
+  align-items: center; /* Centrado vertical */
+  justify-content: space-between; /* Espacio entre logo, menú y cesta */
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 30px;
+  height: 100%; /* Ocupa toda la altura */
+}
+
+/* IZQUIERDA: LOGO */
+.header-left {
+  flex-shrink: 0; /* Que no se aplaste */
+}
+
+.mercadona-logo {
+  width: 170px; /* Ajusta el tamaño del logo */
+  height: auto;
+  display: block;
+}
+
+/* CENTRO: ENLACES */
+.header-center {
+  display: flex;
+  gap: 30px; /* Espacio entre cada palabra */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #009048; /* VERDE MERCADONA */
+  font-weight: 600; /* Letra un poco gordita */
+  font-size: 16px;
+  transition: opacity 0.2s;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+/* DERECHA: BOTONES */
+.header-right {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-clean, .btn-cesta-clean {
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  color: #333; /* Texto gris oscuro */
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.btn-clean:hover, .btn-cesta-clean:hover {
+  color: #007a3e; /* Al pasar el ratón se pone verde */
+}
+
+.cart-badge {
+  background-color: #e5cd04; /* Amarillo */
+  color: black;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+/* MOVIL: Ocultar menú si la pantalla es muy pequeña */
+@media (max-width: 900px) {
+  .header-center {
+    display: none;
+  }
+}
+/* ================================
+   SELECTOR DE IDIOMA (DROPDOWN)
+   ================================ */
+
+.language-selector {
+  position: relative;
+}
+
+/* CONTENEDOR DEL SELECTOR */
+.dropdown {
+  position: relative;
+}
+
+/* BOTÓN QUE MUESTRA EL IDIOMA */
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* MENÚ DESPLEGABLE HACIA ABAJO */
+.dropdown-menu {
+  position: absolute;
+  top: 35px;       /* LO BAJA */
+  right: 0;        /* PEGADO A LA DERECHA */
+
+  background: white;
+  border-radius: 10px;
+  width: 170px;
+
+  padding: 8px 0;
+
+  display: flex;
+  flex-direction: column; /* Hacia abajo */
+  gap: 3px;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+
+  z-index: 2000; /* Se asegura de estar arriba */
+}
+
+/* OPCIONES DEL MENÚ */
+.dropdown-menu button {
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* HOVER DE LAS OPCIONES */
+.dropdown-menu button:hover {
+  background: #f2f2f2;
+}
