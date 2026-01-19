@@ -1,0 +1,68 @@
+/* Importamos una fuente Serif bonita si no la tienes ya cargada */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+.info-section {
+  background-color: white;
+  width: 100%;
+  padding: 80px 20px; /* Espacio generoso arriba y abajo */
+  display: flex;
+  justify-content: center;
+}
+
+.info-container {
+  display: flex;
+  align-items: center; /* Centrado vertical */
+  justify-content: space-between;
+  max-width: 1100px; /* Ancho contenido para que no se estire demasiado */
+  width: 100%;
+  gap: 60px; /* Hueco entre texto e imagen */
+}
+
+/* TEXTO */
+.info-text-col {
+  flex: 1; /* Toma el espacio disponible */
+  max-width: 450px;
+}
+
+.info-title {
+  font-family: 'Merriweather', serif; /* Fuente elegante */
+  font-size: 2rem;
+  color: #000;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.info-description {
+  font-family: Arial, sans-serif;
+  font-size: 1.1rem;
+  color: #666; /* Gris suave */
+  line-height: 1.6;
+}
+
+/* IMAGEN */
+.info-image-col {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Alinea la foto a la derecha */
+}
+
+.info-image-col img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  border-radius: 4px; /* Bordes ligeramente suaves */
+  object-fit: cover;
+}
+
+/* RESPONSIVE (MÓVIL) */
+@media (max-width: 850px) {
+  .info-container {
+    flex-direction: column; /* Poner uno debajo de otro */
+    text-align: center;
+    gap: 40px;
+  }
+
+  .info-image-col {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,71 @@
+.home-container {
+    padding-bottom: 50px;
+    background-color: #f8f8f8; /* Un gris muy suave de fondo */
+  }
+  
+  .categories-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+  
+  /* GRIDS RESPONSIVOS */
+  .categories-grid {
+    display: grid;
+    /* Esto crea columnas automáticas. Mínimo 200px de ancho, si no caben, saltan de línea */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  /* TARJETA INDIVIDUAL */
+  .category-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none; /* Quita el subrayado del link */
+    color: inherit;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px); /* Efecto de levantar al pasar ratón */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  }
+  
+  .card-image-container {
+    width: 100%;
+    height: 150px;
+    background-color: #eee;
+  }
+  
+  .card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para que llene el hueco sin deformarse */
+  }
+  
+  .card-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .card-info h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: #444;
+    font-weight: 500;
+  }
